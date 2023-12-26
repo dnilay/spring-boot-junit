@@ -13,7 +13,7 @@ phases:
       - echo Build completed
 artifacts:
   files:
-    - build/libs/*.jar
+    - target/*.jar
 
   #com/mycompany/app/HelloWorld.java, specifying yes will place this file in /HelloWorld.java
   discard-paths: yes
