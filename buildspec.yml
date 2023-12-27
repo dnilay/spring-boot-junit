@@ -6,7 +6,7 @@ phases:
       java: corretto11
   build:
     commands:
-      - mvn clean package install test
+      - mvn clean package install
       -  mvn surefire-report:report
 reports: #New
   SurefireReports: # CodeBuild will create a report group called "SurefireReports".
