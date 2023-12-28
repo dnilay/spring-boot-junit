@@ -23,6 +23,11 @@ public class ToDoController {
     @Autowired
     private ToDoService toDoService;
 
+    @GetMapping("/")
+    public String healthCheck()
+    {
+        return "ok";
+    }
     @RequestMapping(value = "/todo", method = RequestMethod.GET)
     public ResponseEntity<List<ToDo>> getAllToDo() {
         logger.info("Returning all the ToDo´s");
