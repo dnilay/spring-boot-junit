@@ -26,7 +26,7 @@ public class ToDoController {
     @GetMapping("/")
     public String healthCheck()
     {
-        return "ok";
+        return "ok health check is succeed v2";
     }
     @RequestMapping(value = "/todo", method = RequestMethod.GET)
     public ResponseEntity<List<ToDo>> getAllToDo() {
