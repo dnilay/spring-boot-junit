@@ -11,8 +11,11 @@ import java.util.Optional;
 @Service("toDoService")
 public class ToDoServiceImpl implements ToDoService {
 
-    @Autowired
-    private ToDoRepository toDoRepository;
+    private final ToDoRepository toDoRepository;
+
+    public ToDoServiceImpl(ToDoRepository toDoRepository) {
+        this.toDoRepository = toDoRepository;
+    }
 
     @Override
     public List<ToDo> getAllToDo() {

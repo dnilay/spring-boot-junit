@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,13 +22,16 @@ public class ToDoController {
 
     private static final Logger logger = LoggerFactory.getLogger(ToDoController.class);
 
-    @Autowired
-    private ToDoService toDoService;
+
+    private final ToDoService toDoService;
+
+    public ToDoController(ToDoService toDoService) {
+        this.toDoService = toDoService;
+    }
 
     @GetMapping("/")
-    public String healthCheck()
-    {
-        return "ok health check is succeed v2";
+    public ResponseEntity<?> healthCheck() throws UnknownHostException {
+        return ResponseEntity.ok("ok health check is succeed v2 "+ Inet4Address.getLocalHost().toString());
     }
     @RequestMapping(value = "/todo", method = RequestMethod.GET)
     public ResponseEntity<List<ToDo>> getAllToDo() {
