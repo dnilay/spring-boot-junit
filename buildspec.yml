@@ -14,9 +14,6 @@ reports: #New
       - '**/*'
     base-directory: 'target/surefire-reports' # Location of the reports
 
-  post_build:
-    commands:
-      - echo Build completed
 artifacts:
   files:
     - target/*.jar
