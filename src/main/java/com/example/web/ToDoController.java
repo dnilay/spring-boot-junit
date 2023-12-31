@@ -31,7 +31,7 @@ public class ToDoController {
 
     @GetMapping("/")
     public ResponseEntity<?> healthCheck() throws UnknownHostException {
-        return ResponseEntity.ok("ok health check is succeed v2 "+ Inet4Address.getLocalHost().toString());
+        return ResponseEntity.ok("ok health check is succeed v3 "+ Inet4Address.getLocalHost().toString());
     }
     @RequestMapping(value = "/todo", method = RequestMethod.GET)
     public ResponseEntity<List<ToDo>> getAllToDo() {
