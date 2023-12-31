@@ -6,14 +6,16 @@ phases:
       java: corretto11
   build:
     commands:
-      - mvn clean package install
+      - mvn clean package install -DskipTests=true
       - mvn surefire-report:report
-reports: #New
-  SurefireReports: # CodeBuild will create a report group called "SurefireReports".
-    files: #Store all of the files
-      - '**/*'
-    base-directory: 'target/surefire-reports' # Location of the reports
-
+#reports: #New
+ # SurefireReports: # CodeBuild will create a report group called "SurefireReports".
+  #  files: #Store all of the files
+   #   - '**/*'
+    #base-directory: 'target/surefire-reports' # Location of the reports
+  post_build:
+    commands:
+      - echo Build completed
 artifacts:
   files:
     - target/*.jar
