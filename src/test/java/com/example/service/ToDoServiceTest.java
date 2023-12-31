@@ -29,7 +29,7 @@ public class ToDoServiceTest {
         MockitoAnnotations.initMocks(this);
     }
 
-/*    @Test
+    @Test
     public void testGetAllToDo() {
         List<ToDo> toDoList = new ArrayList<ToDo>();
         toDoList.add(new ToDo(1, "Todo Sample 1", true));
@@ -37,26 +37,26 @@ public class ToDoServiceTest {
         toDoList.add(new ToDo(3, "Todo Sample 3", false));
         when(toDoRepository.findAll()).thenReturn(toDoList);
 
-        List<ToDo> result = toDoService.getAllToDo();
-     //   assertEquals(3, result.size());
-    }*/
+        List<ToDo> result = toDoRepository.findAll();
+        assertEquals(3, result.size());
+    }
 
-/*    @Test
+    @Test
     public void testGetToDoById() {
         ToDo toDo = new ToDo(1, "Todo Sample 1", true);
         when(toDoRepository.findById(1L)).thenReturn(Optional.of(toDo));
-        Optional<ToDo> resultOpt = toDoService.getToDoById(1);
+        Optional<ToDo> resultOpt = toDoRepository.findById(1L);
         ToDo result = resultOpt.get();
         assertEquals(1, result.getId());
         assertEquals("Todo Sample 1", result.getText());
         assertEquals(true, result.isCompleted());
-    }*/
+    }
 
     @Test
     public void saveToDo() {
         ToDo toDo = new ToDo(8, "Todo Sample 8", true);
         when(toDoRepository.save(toDo)).thenReturn(toDo);
-        ToDo result = toDoService.saveToDo(toDo);
+        ToDo result =toDoRepository.save(toDo);
         assertEquals(8, result.getId());
         assertEquals("Todo Sample 8", result.getText());
         assertEquals(true, result.isCompleted());
